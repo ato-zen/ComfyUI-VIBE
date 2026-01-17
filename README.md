@@ -48,13 +48,16 @@ This node looks for models in: `ComfyUI/models/vibe/`
 
 Structure should look like:
 ```text
-ComfyUI/models/vibe/
-└── VIBE-Image-Edit/
-    ├── model_index.json
-    ├── unet/
-    ├── vae/
-    ├── text_encoder/
-    └── tokenizer/
+📂 ComfyUI/
+└── 📂 models/
+    └── 📂 vibe/
+         └── 📂 VIBE-Image-Edit/
+              ├── model_index.json    
+              ├── 📂 scheduler/
+              ├── 📂 text_encoder/
+              ├── 📂 tokenizer/
+              ├── 📂 transformer/
+              └── 📂 vae/
 ```
 
 ---
