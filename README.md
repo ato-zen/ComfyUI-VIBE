@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td width="30%">
-      <img src="examples/cover.png" alt="VIBE Poster" width="100%">
+      <img src="examples/I2I-woman-in-a-hat.png" alt="VIBE Poster" width="100%">
     </td>
     <td width="70%">
       Implementation of <b>VIBE</b> (Visual Instruction Based Editor) as a custom node for <a href="https://github.com/comfyanonymous/ComfyUI">ComfyUI</a>. Edit images using natural language instructions (e.g., "make it winter", "change the dog to a cat").<br><br>
