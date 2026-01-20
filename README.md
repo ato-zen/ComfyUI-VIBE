@@ -1,20 +1,23 @@
 # ComfyUI-VIBE 🎨
 
-<div align="left">
-  <img src="examples/I2I-woman-in-a-hat.png" width="300" align="left" style="margin-right: 20px;" alt="VIBE Poster">
-</div>
-
-Implementation of **VIBE** (Visual Instruction Based Editor) as a custom node for [ComfyUI](https://github.com/comfyanonymous/ComfyUI). Edit images using natural language instructions (e.g., "make it winter", "change the dog to a cat").
-
-VIBE leverages the efficient **Sana1.5-1.6B** diffusion model and **Qwen3-VL-2B-Instruct** for fast, high-quality image manipulation.
-
-## ✨ Features
-- **Instruction-based Editing**: No complex prompting required.
-- **Latent Support**: Connect an `Empty Latent Image` to define output resolution.
-- **Fast Inference**: Powered by Sana1.5's linear attention.
-- **Local Model Support**: Runs entirely on your hardware.
-
-<br clear="left"/>
+<table>
+  <tr>
+    <td width="30%">
+      <img src="examples/cover.png" alt="VIBE Poster" width="100%">
+    </td>
+    <td width="70%">
+      Implementation of <b>VIBE</b> (Visual Instruction Based Editor) as a custom node for <a href="https://github.com/comfyanonymous/ComfyUI">ComfyUI</a>. Edit images using natural language instructions (e.g., "make it winter", "change the dog to a cat").<br><br>
+      VIBE leverages the efficient <b>Sana1.5-1.6B</b> diffusion model and <b>Qwen3-VL-2B-Instruct</b> for fast, high-quality image manipulation.<br><br>
+      <h3>✨ Features</h3>
+      <ul>
+        <li><b>Instruction-based Editing:</b> No complex prompting required.</li>
+        <li><b>Latent Support:</b> Connect an <code>Empty Latent Image</code> to define output resolution.</li>
+        <li><b>Fast Inference:</b> Powered by Sana1.5's linear attention.</li>
+        <li><b>Local Model Support:</b> Runs entirely on your hardware.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## 🖼️ Example Workflow
 
