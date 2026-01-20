@@ -21,11 +21,7 @@ NODE_ROOT = os.path.dirname(os.path.abspath(__file__))
 if NODE_ROOT not in sys.path:
     sys.path.insert(0, NODE_ROOT)
 
-try:
-    from vibe.editor import ImageEditor
-except ImportError as e:
-    print(f"VIBE Load Error: Internal 'vibe' module not found. {e}")
-    ImageEditor = None
+ImageEditor = None
 
 VIBE_MODEL_INSTANCE = None
 VIBE_CURRENT_PATH = None
@@ -62,17 +58,30 @@ class VibeEditorNode:
         return None
 
     def generate(self, positive, steps, cfg_text, cfg_image, seed, image=None, latent_image=None):
-        global VIBE_MODEL_INSTANCE, VIBE_CURRENT_PATH
+        global VIBE_MODEL_INSTANCE, VIBE_CURRENT_PATH, ImageEditor
 
+        # Lazy Import: Load 'vibe' module only when needed to speed up ComfyUI startup
         if ImageEditor is None:
-            raise ImportError("VIBE library missing in custom_nodes folder.")
+            try:
+                from vibe.editor import ImageEditor
+                print("✅ VIBE library loaded successfully.")
+            except ImportError as e:
+                print(f"❌ VIBE Load Error: Internal 'vibe' module not found. {e}")
+                # Raise error to stop workflow and notify user in WebUI
+                raise ImportError(f"VIBE library missing {e}")
 
         checkpoint_path = self._auto_find_model() or "iitolstykh/VIBE-Image-Edit"
 
         if VIBE_MODEL_INSTANCE is None or VIBE_CURRENT_PATH != checkpoint_path:
-            print(f"VIBE: Loading model from {checkpoint_path}")
-            VIBE_MODEL_INSTANCE = ImageEditor(checkpoint_path=checkpoint_path, device="cuda")
-            VIBE_CURRENT_PATH = checkpoint_path
+            print(f"⏳ VIBE: Loading model from {checkpoint_path}... Please wait.")
+
+            try:
+                VIBE_MODEL_INSTANCE = ImageEditor(checkpoint_path=checkpoint_path, device="cuda")
+                VIBE_CURRENT_PATH = checkpoint_path
+                print("✅ VIBE: Model loaded to GPU.")
+            except Exception as e:
+                print(f"❌ VIBE: Failed to load model weights! {e}")
+                raise RuntimeError(f"Failed to load model weights: {e}")
 
         # RESOLUTION LOGIC: Priority is Latent > Image > Default
         target_w, target_h = 1024, 1024
