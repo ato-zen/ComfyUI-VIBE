@@ -1,5 +1,9 @@
 # ComfyUI-VIBE 🎨
 
+<div align="left">
+  <img src="examples/I2I-woman-in-a-hat.png" width="300" align="left" style="margin-right: 20px;" alt="VIBE Poster">
+</div>
+
 Implementation of **VIBE** (Visual Instruction Based Editor) as a custom node for [ComfyUI](https://github.com/comfyanonymous/ComfyUI). Edit images using natural language instructions (e.g., "make it winter", "change the dog to a cat").
 
 VIBE leverages the efficient **Sana1.5-1.6B** diffusion model and **Qwen3-VL-2B-Instruct** for fast, high-quality image manipulation.
@@ -11,6 +15,14 @@ VIBE leverages the efficient **Sana1.5-1.6B** diffusion model and **Qwen3-VL-2B-
 - **Latent Support**: Connect an `Empty Latent Image` to define output resolution.
 - **Fast Inference**: Powered by Sana1.5's linear attention.
 - **Local Model Support**: Runs entirely on your hardware.
+
+---
+
+## 🖼️ Example Workflow
+
+Drag and drop this image into ComfyUI to load the workflow:
+
+![ComfyUI VIBE Workflow](examples/workflow.png)
 
 ---
 
