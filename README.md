@@ -8,15 +8,13 @@ Implementation of **VIBE** (Visual Instruction Based Editor) as a custom node fo
 
 VIBE leverages the efficient **Sana1.5-1.6B** diffusion model and **Qwen3-VL-2B-Instruct** for fast, high-quality image manipulation.
 
----
-
 ## ✨ Features
 - **Instruction-based Editing**: No complex prompting required.
 - **Latent Support**: Connect an `Empty Latent Image` to define output resolution.
 - **Fast Inference**: Powered by Sana1.5's linear attention.
 - **Local Model Support**: Runs entirely on your hardware.
 
----
+<br clear="left"/>
 
 ## 🖼️ Example Workflow
 
