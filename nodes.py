@@ -133,5 +133,29 @@ class VibeEditorNode:
 
         return (out_tensor,)
 
+# ------------------------------------------------------------------------------
+# Auto-setup: Copy example image
+# ------------------------------------------------------------------------------
+try:
+    import shutil
+    
+    EXAMPLE_FILE = "vibe_example_woman.png"
+    
+    my_examples_dir = os.path.join(NODE_ROOT, "examples")
+    comfy_input_dir = folder_paths.get_input_directory()
+    
+    source_path = os.path.join(my_examples_dir, EXAMPLE_FILE)
+    dest_path = os.path.join(comfy_input_dir, EXAMPLE_FILE)
+
+    if os.path.exists(source_path):
+        if not os.path.exists(dest_path):
+            print(f"📦 VIBE Setup: Copying example '{EXAMPLE_FILE}' to input folder...")
+            shutil.copy(source_path, dest_path)
+        else:
+            pass
+
+except Exception as e:
+    print(f"❌ VIBE Setup Error: {e}")
+
 NODE_CLASS_MAPPINGS = { "VIBE_Editor": VibeEditorNode }
 NODE_DISPLAY_NAME_MAPPINGS = { "VIBE_Editor": "VIBE Image Editor" }
