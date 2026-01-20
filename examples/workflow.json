@@ -1,0 +1,755 @@
+{
+	"id": "e982e8eb-4ea6-4804-870d-4ee64e01891e",
+	"revision": 0,
+	"last_node_id": 37,
+	"last_link_id": 64,
+	"nodes": [
+		{
+			"id": 27,
+			"type": "MarkdownNote",
+			"pos": [
+				61,
+				228
+			],
+			"size": [
+				508,
+				632
+			],
+			"flags": {
+				"collapsed": false,
+				"pinned": true
+			},
+			"order": 0,
+			"mode": 0,
+			"inputs": [],
+			"outputs": [],
+			"title": "Note",
+			"properties": {},
+			"widgets_values": [
+				"## \ud83d\udee0\ufe0f Requirements & Installation\n\n1. **Install VIBE node**:\n   ```bash\n   cd ComfyUI/custom_nodes\n   git clone https://github.com/ato-zen/ComfyUI-VIBE\n   ```\n\n2. **Install Dependencies**:\n   Open terminal in `custom_nodes/ComfyUI-VIBE` and run:\n   ```bash\n   cd ComfyUI-VIBE\n   pip install -r requirements.txt\n   ```\n\n## \ud83d\udcc2 Model Setup\n\nThe node automatically looks for weights in: `ComfyUI/models/vibe/`\n\n1. **Download VIBE-Image-Edit weights**:\n   ```bash\n   cd ComfyUI/models\n   mkdir vibe\n   cd vibe\n   git clone https://huggingface.co/iitolstykh/VIBE-Image-Edit\n   ```\n\n**Model Storage Structure:**\n```text\n\ud83d\udcc2 ComfyUI/\n\u2514\u2500\u2500 \ud83d\udcc2 models/\n    \u2514\u2500\u2500 \ud83d\udcc2 vibe/\n         \u2514\u2500\u2500 \ud83d\udcc2 VIBE-Image-Edit/\n              \u251c\u2500\u2500 model_index.json    \n              \u251c\u2500\u2500 \ud83d\udcc2 scheduler/\n              \u251c\u2500\u2500 \ud83d\udcc2 text_encoder/\n              \u251c\u2500\u2500 \ud83d\udcc2 tokenizer/\n              \u251c\u2500\u2500 \ud83d\udcc2 transformer/\n              \u2514\u2500\u2500 \ud83d\udcc2 vae/\n```\n\n## \ud83d\udd17 Links\n\n- **VIBE Custom Node**: [github.com/ato-zen/ComfyUI-VIBE](https://github.com/ato-zen/ComfyUI-VIBE)\n- **Model Weights (HF)**: [iitolstykh/VIBE-Image-Edit](https://huggingface.co/iitolstykh/VIBE-Image-Edit)\n- **Original Research**: [ai-forever/VIBE](https://github.com/ai-forever/VIBE)\n\n## \ud83d\udc1e Report Issues\n\nIf you find any bugs or issues with this node, please report them here:\n[Report issue on GitHub](https://github.com/ato-zen/ComfyUI-VIBE/issues)\n\n"
+			],
+			"color": "#432",
+			"bgcolor": "#653"
+		},
+		{
+			"id": 28,
+			"type": "a591fad0-56fc-479e-aed6-ff45c1c5fc79",
+			"pos": [
+				610,
+				228
+			],
+			"size": [
+				286,
+				174
+			],
+			"flags": {
+				"pinned": true
+			},
+			"order": 4,
+			"mode": 0,
+			"inputs": [
+				{
+					"name": "image",
+					"type": "IMAGE",
+					"link": 62
+				},
+				{
+					"label": "output_width",
+					"name": "width",
+					"type": "INT",
+					"widget": {
+						"name": "width"
+					},
+					"link": null
+				},
+				{
+					"label": "output_height",
+					"name": "height",
+					"type": "INT",
+					"widget": {
+						"name": "height"
+					},
+					"link": null
+				}
+			],
+			"outputs": [
+				{
+					"name": "IMAGE",
+					"type": "IMAGE",
+					"links": [
+						44
+					]
+				},
+				{
+					"name": "LATENT",
+					"type": "LATENT",
+					"links": [
+						64
+					]
+				}
+			],
+			"properties": {
+				"proxyWidgets": [
+					[
+						"-1",
+						"upscale_method"
+					],
+					[
+						"-1",
+						"width"
+					],
+					[
+						"-1",
+						"height"
+					],
+					[
+						"-1",
+						"batch_size"
+					]
+				],
+				"cnr_id": "comfy-core",
+				"ver": "0.9.2"
+			},
+			"widgets_values": [
+				"nearest-exact",
+				768,
+				1024,
+				1
+			]
+		},
+		{
+			"id": 31,
+			"type": "Fast Groups Bypasser (rgthree)",
+			"pos": [
+				935,
+				830
+			],
+			"size": [
+				271,
+				58
+			],
+			"flags": {
+				"pinned": true
+			},
+			"order": 1,
+			"mode": 0,
+			"inputs": [],
+			"outputs": [
+				{
+					"name": "OPT_CONNECTION",
+					"type": "*",
+					"links": null
+				}
+			],
+			"properties": {
+				"matchColors": "",
+				"matchTitle": "Step 1",
+				"showNav": true,
+				"showAllGraphs": true,
+				"sort": "position",
+				"customSortAlphabet": "",
+				"toggleRestriction": "default"
+			}
+		},
+		{
+			"id": 29,
+			"type": "SaveImage",
+			"pos": [
+				1377,
+				228
+			],
+			"size": [
+				597,
+				662
+			],
+			"flags": {
+				"pinned": true
+			},
+			"order": 6,
+			"mode": 0,
+			"inputs": [
+				{
+					"name": "images",
+					"type": "IMAGE",
+					"link": 46
+				}
+			],
+			"outputs": [],
+			"properties": {
+				"cnr_id": "comfy-core",
+				"ver": "0.9.2"
+			},
+			"widgets_values": [
+				"VIBE_%date:yyyyMMdd%"
+			]
+		},
+		{
+			"id": 2,
+			"type": "LoadImage",
+			"pos": [
+				611,
+				468
+			],
+			"size": [
+				285,
+				422
+			],
+			"flags": {
+				"pinned": true
+			},
+			"order": 2,
+			"mode": 0,
+			"inputs": [],
+			"outputs": [
+				{
+					"name": "IMAGE",
+					"type": "IMAGE",
+					"links": [
+						62
+					]
+				},
+				{
+					"name": "MASK",
+					"type": "MASK",
+					"links": []
+				}
+			],
+			"properties": {
+				"cnr_id": "comfy-core",
+				"ver": "0.8.2",
+				"Node name for S&R": "LoadImage",
+				"image": "vibe_example_woman.png"
+			},
+			"widgets_values": [
+				"vibe_example_woman.png",
+				"image"
+			]
+		},
+		{
+			"id": 37,
+			"type": "EmptyLatentImage",
+			"pos": [
+				935,
+				664
+			],
+			"size": [
+				270,
+				106
+			],
+			"flags": {
+				"pinned": true
+			},
+			"order": 3,
+			"mode": 0,
+			"inputs": [],
+			"outputs": [
+				{
+					"name": "LATENT",
+					"type": "LATENT",
+					"links": []
+				}
+			],
+			"properties": {
+				"cnr_id": "comfy-core",
+				"ver": "0.9.2",
+				"Node name for S&R": "EmptyLatentImage"
+			},
+			"widgets_values": [
+				1024,
+				1024,
+				1
+			]
+		},
+		{
+			"id": 7,
+			"type": "VIBE_Editor",
+			"pos": [
+				935,
+				228
+			],
+			"size": [
+				401,
+				377
+			],
+			"flags": {
+				"pinned": true
+			},
+			"order": 5,
+			"mode": 0,
+			"inputs": [
+				{
+					"name": "image",
+					"shape": 7,
+					"type": "IMAGE",
+					"link": 44
+				},
+				{
+					"name": "latent_image",
+					"shape": 7,
+					"type": "LATENT",
+					"link": 64
+				}
+			],
+			"outputs": [
+				{
+					"name": "IMAGE",
+					"type": "IMAGE",
+					"links": [
+						46
+					]
+				}
+			],
+			"properties": {
+				"aux_id": "ato-zen/VIBE",
+				"ver": "1e12a8195e749d795fc9b30525ebdbd35547c8dc",
+				"Node name for S&R": "VIBE_Editor"
+			},
+			"widgets_values": [
+				"woman in a hat",
+				20,
+				3,
+				1.2,
+				123,
+				"fixed"
+			]
+		}
+	],
+	"links": [
+		[
+			44,
+			28,
+			0,
+			7,
+			0,
+			"IMAGE"
+		],
+		[
+			46,
+			7,
+			0,
+			29,
+			0,
+			"IMAGE"
+		],
+		[
+			62,
+			2,
+			0,
+			28,
+			0,
+			"IMAGE"
+		],
+		[
+			64,
+			28,
+			1,
+			7,
+			1,
+			"LATENT"
+		]
+	],
+	"groups": [
+		{
+			"id": 1,
+			"title": "Step 1",
+			"bounding": [
+				600,
+				154,
+				305,
+				743
+			],
+			"color": "#3f789e",
+			"font_size": 24,
+			"flags": {}
+		},
+		{
+			"id": 2,
+			"title": "Step 2",
+			"bounding": [
+				925,
+				154,
+				421,
+				744
+			],
+			"color": "#3f789e",
+			"font_size": 24,
+			"flags": {}
+		},
+		{
+			"id": 3,
+			"title": "Step 3",
+			"bounding": [
+				1368,
+				154,
+				614,
+				743
+			],
+			"color": "#3f789e",
+			"font_size": 24,
+			"flags": {}
+		}
+	],
+	"definitions": {
+		"subgraphs": [
+			{
+				"id": "a591fad0-56fc-479e-aed6-ff45c1c5fc79",
+				"version": 1,
+				"state": {
+					"lastGroupId": 1,
+					"lastNodeId": 28,
+					"lastLinkId": 57,
+					"lastRerouteId": 0
+				},
+				"revision": 0,
+				"config": {},
+				"name": "Image Size",
+				"inputNode": {
+					"id": -10,
+					"bounding": [
+						432,
+						727,
+						134,
+						140
+					]
+				},
+				"outputNode": {
+					"id": -20,
+					"bounding": [
+						963,
+						759,
+						120,
+						80
+					]
+				},
+				"inputs": [
+					{
+						"id": "6c8ab1ae-8967-419b-bab3-b79572520890",
+						"name": "image",
+						"type": "IMAGE",
+						"linkIds": [
+							53
+						],
+						"localized_name": "image",
+						"pos": [
+							546,
+							747
+						]
+					},
+					{
+						"id": "0e7becbb-b9ca-4ede-b66e-5e2c2486a439",
+						"name": "upscale_method",
+						"type": "COMBO",
+						"linkIds": [
+							52
+						],
+						"pos": [
+							546,
+							767
+						]
+					},
+					{
+						"id": "f64ad12c-845c-4adb-bcca-2ebf77b6adca",
+						"name": "width",
+						"type": "INT",
+						"linkIds": [
+							49,
+							54
+						],
+						"label": "output_width",
+						"pos": [
+							546,
+							787
+						]
+					},
+					{
+						"id": "dba01818-f6d3-4df5-85e8-e078bd54ebc0",
+						"name": "height",
+						"type": "INT",
+						"linkIds": [
+							50,
+							55
+						],
+						"label": "output_height",
+						"pos": [
+							546,
+							807
+						]
+					},
+					{
+						"id": "7e1da432-bc65-4503-8418-e7314dbe6bc3",
+						"name": "batch_size",
+						"type": "INT",
+						"linkIds": [
+							57
+						],
+						"pos": [
+							546,
+							827
+						]
+					}
+				],
+				"outputs": [
+					{
+						"id": "c9a0be4b-2eba-472b-bb0d-deb4d78d9140",
+						"name": "IMAGE",
+						"type": "IMAGE",
+						"linkIds": [
+							56
+						],
+						"localized_name": "IMAGE",
+						"pos": [
+							983,
+							779
+						]
+					},
+					{
+						"id": "959b9fd7-ed32-4f84-8405-9609fe7646ea",
+						"name": "LATENT",
+						"type": "LATENT",
+						"linkIds": [
+							39
+						],
+						"localized_name": "LATENT",
+						"pos": [
+							983,
+							799
+						]
+					}
+				],
+				"widgets": [],
+				"nodes": [
+					{
+						"id": 24,
+						"type": "EmptyLatentImage",
+						"pos": [
+							641,
+							827
+						],
+						"size": [
+							231,
+							106
+						],
+						"flags": {
+							"pinned": true
+						},
+						"order": 0,
+						"mode": 0,
+						"inputs": [
+							{
+								"localized_name": "width",
+								"name": "width",
+								"type": "INT",
+								"widget": {
+									"name": "width"
+								},
+								"link": 49
+							},
+							{
+								"localized_name": "height",
+								"name": "height",
+								"type": "INT",
+								"widget": {
+									"name": "height"
+								},
+								"link": 50
+							},
+							{
+								"localized_name": "batch_size",
+								"name": "batch_size",
+								"type": "INT",
+								"widget": {
+									"name": "batch_size"
+								},
+								"link": 57
+							}
+						],
+						"outputs": [
+							{
+								"localized_name": "LATENT",
+								"name": "LATENT",
+								"type": "LATENT",
+								"links": [
+									39
+								]
+							}
+						],
+						"properties": {
+							"cnr_id": "comfy-core",
+							"ver": "0.9.2",
+							"Node name for S&R": "EmptyLatentImage"
+						},
+						"widgets_values": [
+							768,
+							1024,
+							1
+						]
+					},
+					{
+						"id": 28,
+						"type": "ImageScale",
+						"pos": [
+							641,
+							647
+						],
+						"size": [
+							231,
+							130
+						],
+						"flags": {
+							"pinned": true
+						},
+						"order": 1,
+						"mode": 0,
+						"inputs": [
+							{
+								"localized_name": "image",
+								"name": "image",
+								"type": "IMAGE",
+								"link": 53
+							},
+							{
+								"localized_name": "upscale_method",
+								"name": "upscale_method",
+								"type": "COMBO",
+								"widget": {
+									"name": "upscale_method"
+								},
+								"link": 52
+							},
+							{
+								"localized_name": "width",
+								"name": "width",
+								"type": "INT",
+								"widget": {
+									"name": "width"
+								},
+								"link": 54
+							},
+							{
+								"localized_name": "height",
+								"name": "height",
+								"type": "INT",
+								"widget": {
+									"name": "height"
+								},
+								"link": 55
+							}
+						],
+						"outputs": [
+							{
+								"localized_name": "IMAGE",
+								"name": "IMAGE",
+								"type": "IMAGE",
+								"links": [
+									56
+								]
+							}
+						],
+						"properties": {
+							"cnr_id": "comfy-core",
+							"ver": "0.9.2",
+							"Node name for S&R": "ImageScale"
+						},
+						"widgets_values": [
+							"nearest-exact",
+							768,
+							1024,
+							"center"
+						]
+					}
+				],
+				"groups": [],
+				"links": [
+					{
+						"id": 39,
+						"origin_id": 24,
+						"origin_slot": 0,
+						"target_id": -20,
+						"target_slot": 1,
+						"type": "LATENT"
+					},
+					{
+						"id": 49,
+						"origin_id": -10,
+						"origin_slot": 2,
+						"target_id": 24,
+						"target_slot": 0,
+						"type": "INT"
+					},
+					{
+						"id": 50,
+						"origin_id": -10,
+						"origin_slot": 3,
+						"target_id": 24,
+						"target_slot": 1,
+						"type": "INT"
+					},
+					{
+						"id": 52,
+						"origin_id": -10,
+						"origin_slot": 1,
+						"target_id": 28,
+						"target_slot": 1,
+						"type": "COMBO"
+					},
+					{
+						"id": 53,
+						"origin_id": -10,
+						"origin_slot": 0,
+						"target_id": 28,
+						"target_slot": 0,
+						"type": "IMAGE"
+					},
+					{
+						"id": 54,
+						"origin_id": -10,
+						"origin_slot": 2,
+						"target_id": 28,
+						"target_slot": 2,
+						"type": "INT"
+					},
+					{
+						"id": 55,
+						"origin_id": -10,
+						"origin_slot": 3,
+						"target_id": 28,
+						"target_slot": 3,
+						"type": "INT"
+					},
+					{
+						"id": 56,
+						"origin_id": 28,
+						"origin_slot": 0,
+						"target_id": -20,
+						"target_slot": 0,
+						"type": "IMAGE"
+					},
+					{
+						"id": 57,
+						"origin_id": -10,
+						"origin_slot": 4,
+						"target_id": 24,
+						"target_slot": 2,
+						"type": "INT"
+					}
+				],
+				"extra": {
+					"workflowRendererVersion": "LG"
+				}
+			}
+		]
+	},
+	"config": {},
+	"extra": {
+		"workflowRendererVersion": "LG",
+		"ds": {
+			"scale": 1.0,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"frontendVersion": "1.36.14"
+	},
+	"version": 0.4
+}
