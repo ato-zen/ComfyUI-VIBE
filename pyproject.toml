@@ -1,0 +1,18 @@
+[project]
+name = "ComfyUI-VIBE"
+description = "VIBE (Visual Instruction Based Editor) implementation for ComfyUI."
+version = "1.0.0"
+license = {file = "LICENSE"} 
+
+dependencies = ["diffusers>=0.33.1", "transformers", "accelerate", "loguru", "pydantic>=2.0.0", "pydantic-settings", "python-dotenv", "sentencepiece"]
+
+[project.urls]
+Repository = "https://github.com/ato-zen/ComfyUI-VIBE"
+Documentation = "https://github.com/ato-zen/ComfyUI-VIBE/wiki"
+"Bug Tracker" = "https://github.com/ato-zen/ComfyUI-VIBE/issues"
+
+[tool.comfy]
+PublisherId = "ato-zen"
+DisplayName = "ComfyUI-VIBE"
+Icon = ""
+includes = [] 
