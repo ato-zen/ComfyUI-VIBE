@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td width="320" align="center" valign="top">
-      <a href="https://youtube.com/shorts/aeG32MmlFmQ">
+      <a href="https://youtube.com/shorts/aeG32MmlFmQ" target="_blank">
         <img src="examples/I2I-woman-in-a-hat.png" width="300"><br>
         <strong>▶️ Play Video Demo</strong>
       </a>
