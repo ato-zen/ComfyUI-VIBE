@@ -5,33 +5,6 @@
 	"last_link_id": 64,
 	"nodes": [
 		{
-			"id": 27,
-			"type": "MarkdownNote",
-			"pos": [
-				61,
-				228
-			],
-			"size": [
-				508,
-				632
-			],
-			"flags": {
-				"collapsed": false,
-				"pinned": true
-			},
-			"order": 0,
-			"mode": 0,
-			"inputs": [],
-			"outputs": [],
-			"title": "Note",
-			"properties": {},
-			"widgets_values": [
-				"## \ud83d\udee0\ufe0f Requirements & Installation\n\n1. **Install VIBE node**:\n   ```bash\n   cd ComfyUI/custom_nodes\n   git clone https://github.com/ato-zen/ComfyUI-VIBE\n   ```\n\n2. **Install Dependencies**:\n   Open terminal in `custom_nodes/ComfyUI-VIBE` and run:\n   ```bash\n   cd ComfyUI-VIBE\n   pip install -r requirements.txt\n   ```\n\n## \ud83d\udcc2 Model Setup\n\nThe node automatically looks for weights in: `ComfyUI/models/vibe/`\n\n1. **Download VIBE-Image-Edit weights**:\n   ```bash\n   cd ComfyUI/models\n   mkdir vibe\n   cd vibe\n   git clone https://huggingface.co/iitolstykh/VIBE-Image-Edit\n   ```\n\n**Model Storage Structure:**\n```text\n\ud83d\udcc2 ComfyUI/\n\u2514\u2500\u2500 \ud83d\udcc2 models/\n    \u2514\u2500\u2500 \ud83d\udcc2 vibe/\n         \u2514\u2500\u2500 \ud83d\udcc2 VIBE-Image-Edit/\n              \u251c\u2500\u2500 model_index.json    \n              \u251c\u2500\u2500 \ud83d\udcc2 scheduler/\n              \u251c\u2500\u2500 \ud83d\udcc2 text_encoder/\n              \u251c\u2500\u2500 \ud83d\udcc2 tokenizer/\n              \u251c\u2500\u2500 \ud83d\udcc2 transformer/\n              \u2514\u2500\u2500 \ud83d\udcc2 vae/\n```\n\n## \ud83d\udd17 Links\n\n- **VIBE Custom Node**: [github.com/ato-zen/ComfyUI-VIBE](https://github.com/ato-zen/ComfyUI-VIBE)\n- **Model Weights (HF)**: [iitolstykh/VIBE-Image-Edit](https://huggingface.co/iitolstykh/VIBE-Image-Edit)\n- **Original Research**: [ai-forever/VIBE](https://github.com/ai-forever/VIBE)\n\n## \ud83d\udc1e Report Issues\n\nIf you find any bugs or issues with this node, please report them here:\n[Report issue on GitHub](https://github.com/ato-zen/ComfyUI-VIBE/issues)\n\n"
-			],
-			"color": "#432",
-			"bgcolor": "#653"
-		},
-		{
 			"id": 28,
 			"type": "a591fad0-56fc-479e-aed6-ff45c1c5fc79",
 			"pos": [
@@ -131,7 +104,7 @@
 			"flags": {
 				"pinned": true
 			},
-			"order": 1,
+			"order": 0,
 			"mode": 0,
 			"inputs": [],
 			"outputs": [
@@ -177,7 +150,8 @@
 			"outputs": [],
 			"properties": {
 				"cnr_id": "comfy-core",
-				"ver": "0.9.2"
+				"ver": "0.9.2",
+				"Node name for S&R": "SaveImage"
 			},
 			"widgets_values": [
 				"VIBE_%date:yyyyMMdd%"
@@ -197,7 +171,7 @@
 			"flags": {
 				"pinned": true
 			},
-			"order": 2,
+			"order": 1,
 			"mode": 0,
 			"inputs": [],
 			"outputs": [
@@ -218,7 +192,7 @@
 				"cnr_id": "comfy-core",
 				"ver": "0.8.2",
 				"Node name for S&R": "LoadImage",
-				"image": "vibe_example_woman.png"
+				"image": "clipspace/clipspace-painted-masked-1768596274824.png [input]"
 			},
 			"widgets_values": [
 				"vibe_example_woman.png",
@@ -239,7 +213,7 @@
 			"flags": {
 				"pinned": true
 			},
-			"order": 3,
+			"order": 2,
 			"mode": 0,
 			"inputs": [],
 			"outputs": [
@@ -300,18 +274,46 @@
 				}
 			],
 			"properties": {
-				"aux_id": "ato-zen/VIBE",
+				"cnr_id": "ComfyUI-VIBE",
 				"ver": "1e12a8195e749d795fc9b30525ebdbd35547c8dc",
-				"Node name for S&R": "VIBE_Editor"
+				"Node name for S&R": "VIBE_Editor",
+				"aux_id": "ato-zen/VIBE"
 			},
 			"widgets_values": [
 				"woman in a hat",
 				20,
 				3,
 				1.2,
-				123,
-				"fixed"
+				124,
+				"increment",
+				null
 			]
+		},
+		{
+			"id": 27,
+			"type": "MarkdownNote",
+			"pos": [
+				111,
+				183
+			],
+			"size": [
+				467,
+				715
+			],
+			"flags": {
+				"collapsed": false
+			},
+			"order": 3,
+			"mode": 0,
+			"inputs": [],
+			"outputs": [],
+			"title": "Note",
+			"properties": {},
+			"widgets_values": [
+				"## \u26a1 Easy Installation (via ComfyUI Manager)\n\n1. Load this workflow into ComfyUI.\n2. Open **ComfyUI Manager** and click **\"Install Missing Custom Nodes\"**.\n3. **Restart** ComfyUI after the installation finishes.\n4. Once reloaded, locate the **VIBE Image Editor** node (in Step 2) and click the **\"Check / Download Model\"** button. This will automatically download the necessary weights.\n\n---\n\n*(Alternatively, you can follow the manual installation process below)*\n## \ud83d\udee0\ufe0f Requirements & Installation\n\n1. **Install VIBE node**:\n   ```bash\n   cd ComfyUI/custom_nodes\n   git clone https://github.com/ato-zen/ComfyUI-VIBE\n   ```\n\n2. **Install Dependencies**:\n   Open terminal in `custom_nodes/ComfyUI-VIBE` and run:\n   ```bash\n   cd ComfyUI-VIBE\n   pip install -r requirements.txt\n   ```\n\n## \ud83d\udcc2 Model Setup\n\nThe node automatically looks for weights in: `ComfyUI/models/vibe/`\n\n1. **Download VIBE-Image-Edit weights**:\n   ```bash\n   cd ComfyUI/models\n   mkdir vibe\n   cd vibe\n   git clone https://huggingface.co/iitolstykh/VIBE-Image-Edit\n   ```\n\n**Model Storage Structure:**\n```text\n\ud83d\udcc2 ComfyUI/\n\u2514\u2500\u2500 \ud83d\udcc2 models/\n    \u2514\u2500\u2500 \ud83d\udcc2 vibe/\n        \u2514\u2500\u2500 \ud83d\udcc2 VIBE-Image-Edit/\n            \u251c\u2500\u2500 model_index.json    \n            \u251c\u2500\u2500 \ud83d\udcc2 scheduler/\n            \u251c\u2500\u2500 \ud83d\udcc2 text_encoder/\n            \u251c\u2500\u2500 \ud83d\udcc2 tokenizer/\n            \u251c\u2500\u2500 \ud83d\udcc2 transformer/\n            \u2514\u2500\u2500 \ud83d\udcc2 vae/\n```\n\n## \ud83d\udd17 Links\n\n- **VIBE Custom Node**: [github.com/ato-zen/ComfyUI-VIBE](https://github.com/ato-zen/ComfyUI-VIBE)\n- **Model Weights (HF)**: [iitolstykh/VIBE-Image-Edit](https://huggingface.co/iitolstykh/VIBE-Image-Edit)\n- **Original Research**: [ai-forever/VIBE](https://github.com/ai-forever/VIBE)\n- \ud83d\udc1e [Report issue this workflow on GitHub](https://github.com/ato-zen/ComfyUI-VIBE/issues)\n\n"
+			],
+			"color": "#432",
+			"bgcolor": "#653"
 		}
 	],
 	"links": [
@@ -749,7 +751,14 @@
 				0
 			]
 		},
-		"frontendVersion": "1.36.14"
+		"frontendVersion": "1.36.14",
+		"VHS_latentpreview": false,
+		"VHS_latentpreviewrate": 0,
+		"VHS_MetadataImage": true,
+		"VHS_KeepIntermediate": true
 	},
-	"version": 0.4
+	"version": 0.4,
+	"seed_widgets": {
+		"7": 4
+	}
 }
