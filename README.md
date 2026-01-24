@@ -22,6 +22,15 @@
   </tr>
 </table>
 
+## ⚡ Easy Installation (via ComfyUI Manager)
+
+1. Load this workflow into ComfyUI.
+2. Open **ComfyUI Manager** and click **"Install Missing Custom Nodes"**.
+3. **Restart** ComfyUI after the installation finishes.
+4. Once reloaded, locate the **VIBE Image Editor** node (in Step 2) and click the **"Check / Download Model"** button. This will automatically download the necessary weights.
+
+---
+
 ## 🖼️ Example Workflow
 
 Drag and drop this image into ComfyUI to load the workflow:
