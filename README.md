@@ -26,7 +26,7 @@
 
 Drag and drop this image into ComfyUI to load the workflow:
 
-![ComfyUI VIBE Workflow](examples/workflow.png)
+![ComfyUI VIBE Workflow](examples/vibe-workflow.png)
 
 ---
 
